@@ -1,0 +1,17 @@
+{
+	"hdaimg": {
+		"path": "/home/waigx/VMs",
+		"base": "debian.qcow2"
+	},
+
+	"br0": {
+		"ip": "10.10.0.1",
+		"mask": "255.255.0.0"
+	},
+
+	"vmconfig": {
+		"-nographic": null,
+		"-m": "512",
+		"-enable-kvm": null
+	}
+}
