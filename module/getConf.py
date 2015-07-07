@@ -16,6 +16,13 @@ def getVMInfo():
 	return VMInfo
 
 
+def getExisitingTopo():
+	jsonFile = open("conf/existTopo.json", 'r')
+	existingTopo = json.load(jsonFile)
+	jsonFile.close()
+	return existingTopo;
+
+
 def getTopoInfo():
 	brIndex = 1;
 	topoDict = dict()
@@ -34,3 +41,5 @@ def getTopoInfo():
 	existTopoFile.close();
 	topoFile.close();
 	return topoDict
+
+

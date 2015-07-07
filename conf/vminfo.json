@@ -13,5 +13,10 @@
 		"-nographic": null,
 		"-m": "512",
 		"-enable-kvm": null
+	},
+
+	"vmnet": {
+		"ipbase": "10.10.1."
 	}
+
 }

@@ -8,14 +8,23 @@ __email__ = "yigwang@cs.stonybrook.edu"
 
 import subprocess as sp
 import sys
+from module.getConf import getVMInfo, getTopoInfo, getExisitingTopo
+
+
+def callCMD(cmd, user, ipAddr):
+	sp.call(['ssh', user + '@' + ipAddr, cmd])
+	return
+
+
+ipbase = getVMInfo()['vmnet']['ipbase']
+existingTopo = getExisitingTopo();
 
 
 def sendCMD(cmd):
-	sp.call(['ssh', 'root@10.10.1.0', cmd])
-	sp.call(['ssh', 'root@10.10.1.1', cmd])
-	sp.call(['ssh', 'root@10.10.1.2', cmd])
-	sp.call(['ssh', 'root@10.10.1.3', cmd])
-	return;
+	for machineNo in existingTopo:
+		print "running " + cmd + " on machine No:" + machineNo
+		callCMD(cmd, 'root', ipbase + machineNo)
+	return
 
 
 cmd = ' '.join(sys.argv[1:])
